@@ -13,12 +13,12 @@ exports.getItems = exports.createItem = void 0;
 const prisma_1 = require("../utils/prisma");
 const uploadImg_1 = require("../utils/uploadImg");
 const createItem = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { title, compony, price, status, images, hot, active } = req.body;
+    const { title, compony, currentPrice, status, images, hot, active } = req.body;
     try {
         ///@ts-ignore  FIXME:
         const i = yield (0, uploadImg_1.uploadImg)(res, images);
         const item = yield prisma_1.prisma.item.create({
-            data: { title, compony, price, status, images: i, hot, active },
+            data: { title, compony, currentPrice, status, images: i, hot, active },
         });
         res.status(200).json({ success: true, item });
     }
