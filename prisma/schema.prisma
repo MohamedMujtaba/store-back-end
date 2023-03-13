@@ -29,6 +29,7 @@ model Item {
   battery      Int?
   processor    String?
   screen       String?
+  price        Int
 }
 
 type Images {
