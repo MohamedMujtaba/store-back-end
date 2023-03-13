@@ -14,7 +14,7 @@ datasource db {
 model Item {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   title        String
-  curruntPrice Int
+  currentPrice Int
   oldPrice     Int?
   compony      String
   status       Status
@@ -29,7 +29,6 @@ model Item {
   battery      Int?
   processor    String?
   screen       String?
-  price        Int
 }
 
 type Images {

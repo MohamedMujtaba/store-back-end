@@ -8,13 +8,14 @@ interface ItemReq extends Request {
 }
 
 export const createItem = async (req: ItemReq, res: Response) => {
-  const { title, compony, price, status, images, hot, active } = req.body;
+  const { title, compony, currentPrice, status, images, hot, active } =
+    req.body;
 
   try {
     ///@ts-ignore  FIXME:
     const i: any = await uploadImg(res, images);
     const item = await prisma.item.create({
-      data: { title, compony, price, status, images: i, hot, active },
+      data: { title, compony, currentPrice, status, images: i, hot, active },
     });
     res.status(200).json({ success: true, item });
   } catch (error) {
